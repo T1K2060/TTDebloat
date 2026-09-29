@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "apps": [
+    {
+      "id": "Microsoft.BingWeather",
+      "friendly_name": "Weather",
+      "category": "Microsoft Bloat",
+      "description": "Built-in weather app. Safe to remove if you use a browser or another app for weather.",
+      "match": {
+        "source": "appx",
+        "package_family_prefixes": ["Microsoft.BingWeather"]
+      },
+      "removal_method": "appx",
+      "cleanup_paths": [
+        "%LOCALAPPDATA%\\Packages\\Microsoft.BingWeather_8wekyb3d8bbwe"
+      ]
+    },
+    {
+      "id": "Microsoft.XboxApp",
+      "friendly_name": "Xbox App",
+      "category": "Gaming",
+      "description": "Xbox companion app. Safe to remove if you don't use Xbox/Game Pass features.",
+      "match": {
+        "source": "appx",
+        "package_family_prefixes": ["Microsoft.XboxApp", "Microsoft.GamingApp"]
+      },
+      "removal_method": "appx",
+      "cleanup_paths": [
+        "%LOCALAPPDATA%\\Packages\\Microsoft.XboxApp_8wekyb3d8bbwe",
+        "%LOCALAPPDATA%\\Packages\\Microsoft.GamingApp_8wekyb3d8bbwe"
+      ]
+    },
+    {
+      "id": "Microsoft.549981C3F5F10",
+      "friendly_name": "Cortana",
+      "category": "Microsoft Bloat",
+      "description": "Microsoft's voice assistant. Mostly dormant on modern Windows but still safe to remove.",
+      "match": {
+        "source": "appx",
+        "package_family_prefixes": ["Microsoft.549981C3F5F10"]
+      },
+      "removal_method": "appx",
+      "cleanup_paths": [
+        "%LOCALAPPDATA%\\Packages\\Microsoft.549981C3F5F10_8wekyb3d8bbwe"
+      ]
+    },
+    {
+      "id": "CandyCrush",
+      "friendly_name": "Candy Crush Saga",
+      "category": "Third-Party Bloat",
+      "description": "Pre-installed advertisement/game. Always safe to remove.",
+      "match": {
+        "source": "appx",
+        "package_family_prefixes": ["king.com.CandyCrushSaga"]
+      },
+      "removal_method": "appx",
+      "cleanup_paths": [
+        "%LOCALAPPDATA%\\Packages\\king.com.CandyCrushSaga_kgqvinxwif0dw"
+      ]
+    },
+    {
+      "id": "example-win32-mcafee",
+      "friendly_name": "McAfee Security",
+      "category": "Trial Software",
+      "description": "Pre-installed antivirus trial. Safe to remove if you use Windows Defender or another antivirus.",
+      "match": {
+        "source": "win32",
+        "name_contains": ["McAfee"]
+      },
+      "removal_method": "win32_uninstall_string",
+      "cleanup_paths": [
+        "%PROGRAMDATA%\\McAfee",
+        "%LOCALAPPDATA%\\McAfee",
+        "%APPDATA%\\McAfee"
+      ]
+    }
+  ]
+}
