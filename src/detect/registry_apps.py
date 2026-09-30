@@ -96,6 +96,7 @@ def _read_single_entry(hive, base_path: str, subkey_name: str) -> dict | None:
             "uninstall_string": _get_value(key, "UninstallString") or "",
             "display_icon": _get_value(key, "DisplayIcon") or "",
             "registry_key_path": full_path,
+            "registry_hive": "HKCU" if hive == winreg.HKEY_CURRENT_USER else "HKLM",
             "source": "win32",
         }
 

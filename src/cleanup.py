@@ -126,7 +126,7 @@ def _clean_registry_residue(app_entry: dict, log: LogCallback) -> list[str]:
     # its uninstaller didn't remove its own registration.
     registry_key_path = detected.get("registry_key_path")
     if registry_key_path:
-        hive = winreg.HKEY_LOCAL_MACHINE if "HKEY_LOCAL_MACHINE" not in registry_key_path else winreg.HKEY_LOCAL_MACHINE
+        hive = winreg.HKEY_CURRENT_USER if detected.get("registry_hive") == "HKCU" else winreg.HKEY_LOCAL_MACHINE
         if _key_still_exists(hive, registry_key_path):
             try:
                 winreg.DeleteKey(hive, registry_key_path)

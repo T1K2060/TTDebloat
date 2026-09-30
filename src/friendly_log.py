@@ -18,6 +18,8 @@ _TRANSLATIONS = [
     (re.compile(r"Removed startup entry:", re.IGNORECASE), None),  # already friendly
     (re.compile(r"Removed leftover registry entry:", re.IGNORECASE), None),  # already friendly
     (re.compile(r"Skipped .* still used by", re.IGNORECASE), None),  # already friendly
+    (re.compile(r"App is in use|Skipped — app in use|Closed \d+ running"), None),  # already friendly
+    (re.compile(r"ERROR: unexpected failure"), lambda line: "❌ Something unexpected went wrong."),
     (re.compile(r"Detected MSI uninstaller"), lambda line: "🔧 Found the uninstaller, getting it ready..."),
     (re.compile(r"Detected likely NSIS uninstaller"), lambda line: "🔧 Found the uninstaller, getting it ready..."),
     (re.compile(r"Unrecognized installer type"), lambda line: "🔧 Starting the uninstaller..."),
